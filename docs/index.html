@@ -81,7 +81,7 @@
   </div>
 
   <div class="company d-flex align-items-center justify-content-center flex-column">
-    <h4>Designd & Developed By</h4>
+    <h4>Designed & Developed By</h4>
     <a href="https://sahajananddigital.in/contact/">
       <img width="200" src="https://sahajananddigital.in/images/logo.png" alt="">
       <!-- <img src="https://shikshaskills.org.in/wp-content/uploads/2023/12/website-logo.png" alt="" width="200" srcset=""> -->
@@ -116,7 +116,6 @@
 
     const audioPlayer = document.getElementById('audioPlayer');
     const startBtn = document.getElementById('startPath');
-    const completeBtn = document.getElementById('completePath');
     const newPathBtn = document.getElementById('newPath');
     const statusMsg = document.getElementById('statusMsg');
     const loginForm = document.querySelector('.login-form');
@@ -170,12 +169,10 @@
 
     audioPlayer.addEventListener('play', () => {
       isAudioPlaying = true;
-      completeBtn.disabled = true;
     });
 
     audioPlayer.addEventListener('ended', () => {
       isAudioPlaying = false;
-      completeBtn.disabled = false;
       statusMsg.textContent = "Audio completed! You can now click 'Complete Path'.";
       sendDataToSheet();
     });
