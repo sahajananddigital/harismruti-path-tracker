@@ -15,7 +15,7 @@
     }
 
     .tracker-card,
-    .login-form 
+    .login-form ,
     .company{
       max-width: 600px;
       margin: 80px auto;
@@ -136,10 +136,10 @@
     document.addEventListener("DOMContentLoaded", (event) => {
       console.log("DOM fully loaded and parsed");
       if (isLoggedIn()) {
-        loginForm.style.display = "none";
+        loginForm.style.cssText = "display: none !important";
       } else {
         document.querySelector('.tracker-card').style.display = "none";
-
+        document.querySelector('.company').style.cssText = "display: none !important"
       }
     });
 
