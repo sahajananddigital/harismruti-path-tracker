@@ -22,9 +22,13 @@
       padding: 30px;
       border-radius: 20px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      background: #ffffff;
+      background:#caa9713d;
+      
     }
 
+    .tracker-card img {
+      width: 100%;
+    }
     .btn-lg {
       padding: 12px 20px;
       font-size: 1.2rem;
@@ -55,7 +59,8 @@
 
 <body>
   <div class="tracker-card text-center">
-    <h2 class="mb-3">Harismruti Chintamani Path</h2>
+    <!-- <h2 class="mb-3">Harismruti Chintamani Path</h2> -->
+     <img src="../images/background.jpg" alt="" srcset="">
     <div id="currentDay"></div>
     <div class="audio-container">
       <div class="d-flex justify-content-between mt-2">
@@ -68,7 +73,7 @@
 
     <div class="d-grid gap-2 mt-4">
       <button id="startPath" class="btn btn-primary btn-lg">▶️ Start Path</button>
-      <button id="completePath" class="btn btn-success btn-lg" disabled>✅ Complete Path</button>
+      <!-- <button id="completePath" class="btn btn-success btn-lg" disabled>✅ Complete Path</button> -->
       <!-- <button id="newPath" class="btn btn-secondary mt-2">🔁 Start New Path</button> -->
     </div>
 
@@ -76,9 +81,10 @@
   </div>
 
   <div class="company d-flex align-items-center justify-content-center flex-column">
+    <h4>Designd & Developed By</h4>
     <a href="https://sahajananddigital.in/contact/">
       <img width="200" src="https://sahajananddigital.in/images/logo.png" alt="">
-      <img src="https://shikshaskills.org.in/wp-content/uploads/2023/12/website-logo.png" alt="" width="200" srcset="">
+      <!-- <img src="https://shikshaskills.org.in/wp-content/uploads/2023/12/website-logo.png" alt="" width="200" srcset=""> -->
     </a>
     <p><a href="https://sahajananddigital.in/contact">Contact us</a> for, Web Development, Internship App Development</p>
   </div>
@@ -102,7 +108,7 @@
 
   <script>
     const audioLinks = [
-      'audio/dhoon.mp3', 'audio/monday.mp3', 'audio/tuesday.mp3',
+      'audio/chintamani-01.mp3', 'audio/monday.mp3', 'audio/tuesday.mp3',
       'audio/wednesday.mp3', 'audio/thursday.mp3', 'audio/dhoon.mp3', 'audio/dhoon.mp3'
     ];
 
@@ -174,22 +180,7 @@
       sendDataToSheet();
     });
 
-    completeBtn.addEventListener('click', () => {
-      if (!isAudioPlaying) {
-        const entry = {
-          name: localStorage.getItem('userName') || prompt("Enter your name:"),
-          date: new Date().toLocaleDateString(),
-          chintamani: `${todayName} Path`,
-        };
-
-        localStorage.setItem('userName', entry.name);
-        pathData.push(entry);
-        localStorage.setItem('harismrutiPath', JSON.stringify(pathData));
-
-        completeBtn.disabled = true;
-        statusMsg.textContent = "✅ Path completed and saved!";
-      }
-    });
+   
 
     //Time Stemp
     const currentTimeDisplay = document.getElementById('currentTime');

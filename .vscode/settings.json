@@ -28,5 +28,6 @@
     "terminal.ansiYellow": "#00F769",
     "terminal.background": "#282936",
     "terminal.foreground": "#E9E9F4"
-  }
+  },
+  "liveServer.settings.port": 5501
 }
