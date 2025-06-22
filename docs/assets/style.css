@@ -1,0 +1,75 @@
+body {
+    background: #f4f6f9;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.tracker-card{
+    position: relative;
+}
+
+.login-form {
+    padding: 15px;
+}
+
+.tracker-card,
+.login-form ,
+.company{
+    max-width: 600px;
+    margin: 80px auto;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    /* background:#caa9713d; */
+    
+}
+
+.tracker-card img {
+    width: 100%;
+}
+
+.btn-primary{
+    background-color: #2a394f !important;
+}
+.btn-lg {
+    padding: 12px 20px;
+    font-size: 1.2rem;
+}
+
+.audio-container {
+    margin-top: 20px;
+}
+
+#statusMsg {
+    font-weight: 500;
+    margin-top: 10px;
+    color: #198754;
+}
+
+#currentDay {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.audio-container audio {
+    display: none;
+}
+
+.lyrics-panel {
+    height: 200px;
+    overflow: hidden;
+}
+
+.lyrics-panel .active{
+    color: red;
+}
+
+.path-select {
+    width: 100%;
+}
+
+.path-select .path{
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+}
