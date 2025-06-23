@@ -93,7 +93,7 @@
     });
 
     // Load and parse .lrc file
-fetch('lyrics/01_lyrics.lrc')
+fetch('lyrics/02_lyrics.lrc')
   .then(res => res.text())
   .then(text => {
     lines = text.split('\n').map(l => {
