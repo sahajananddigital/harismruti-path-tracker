@@ -23,20 +23,20 @@ const loginForm = document.querySelector('.login-form');
 const lyricsDiv = document.getElementById('lyrics');
 const totolPathDiv = document.getElementById('total-path');
 const pathSelectContainer = document.querySelectorAll(".path-select .path");
+const currentDay = document.getElementById('currentDay');
+
 
 let lines = [];
 
 const today = new Date();
 const todayIndex = today.getDay();
-const todayName = chintamaniDays[todayIndex];
+const todayName = chintamaniDays[todayIndex - 1];
 
-
-document.getElementById('currentDay').innerText = `${todayName}`;
 
 let isAudioPlaying = false;
 let pathData = JSON.parse(localStorage.getItem('harismrutiPath')) || [];
 
-loadPath( todayIndex );
+loadPath( todayIndex - 1 );
 
 window.addEventListener('keydown', (e) => {
   if ([37, 39].includes(e.keyCode)) {
@@ -114,6 +114,9 @@ function loadPath( audioIndex ){
   audioPlayer.src = audioLinks[audioIndex];
   console.log(audioLinks[audioIndex])
   loadLyrics(audioIndex);
+  currentDay.textContent = `${chintamaniDays[audioIndex]}`;
+
+
   // checkAudioStatus();
   startBtn.textContent = "▶️ શરુ કરો / Resume Path";
   statusMsg.textContent = "Audio paused.";
