@@ -9,6 +9,8 @@ body {
 
 .tracker-card{
     position: relative;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 .login-form {
@@ -68,6 +70,7 @@ body {
 .lyrics-panel {
     height: 200px;
     overflow: hidden;
+    font-size: 20px;
 }
 
 .lyrics-panel .active{

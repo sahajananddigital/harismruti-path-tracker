@@ -1,4 +1,13 @@
 const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const chintamaniDays = [ 
+  "સોમવાર - સ્વરૂપ ચિન્તામણી, નાથ નીરખ્યા છે",
+  "મંગળવાર - થાળ ચિન્તામણી, જમતા જોવાં છે",
+  "બુધવાર - લીલા ચિન્તામણી, ભુદર ભાળ્યા છે",
+  "ગુરુવાર - દર્શન ચિન્તામણી, દ્રગે દીઠા છે",
+  "શુક્રવાર - મહાત્મ્ય ચિન્તામણી, જીવન જાણું છે",
+  "શનિવાર - સુખ ચિન્તામણી, સુખકારી છે",
+  "રવિવાર - મૂર્તિ ચિન્તામણી, અયરજકારી છે"
+];
 const audioLinks = [
   'audio/chintamani-01.mp3', 'audio/chintamani-02.mp3', 'audio/chintamani-03.mp3',
   'audio/chintamani-04.mp3', 'audio/chintamani-05.mp3', 'audio/chintamani-06.mp3', 'audio/chintamani-07.mp3'
@@ -12,15 +21,17 @@ const newPathBtn = document.getElementById('newPath');
 const statusMsg = document.getElementById('statusMsg');
 const loginForm = document.querySelector('.login-form');
 const lyricsDiv = document.getElementById('lyrics');
+const totolPathDiv = document.getElementById('total-path');
 const pathSelectContainer = document.querySelectorAll(".path-select .path");
 
 let lines = [];
 
 const today = new Date();
 const todayIndex = today.getDay();
-const todayName = dayNames[todayIndex];
+const todayName = chintamaniDays[todayIndex];
 
-document.getElementById('currentDay').innerText = `${todayName} Path`;
+
+document.getElementById('currentDay').innerText = `${todayName}`;
 
 let isAudioPlaying = false;
 let pathData = JSON.parse(localStorage.getItem('harismrutiPath')) || [];
@@ -106,6 +117,7 @@ function loadPath( audioIndex ){
   // checkAudioStatus();
   startBtn.textContent = "▶️ શરુ કરો / Resume Path";
   statusMsg.textContent = "Audio paused.";
+  totolPathDiv.textContent = `જય સ્વામિનારાયણ, આપના કુલ ${getTotalPath()} પાઠ થયા છે.`
 }
 
 // Load and parse .lrc file
@@ -150,6 +162,7 @@ audioPlayer.addEventListener('timeupdate', () => {
   });
 });
 
+
 function sendDataToSheet() {
   const formData = new FormData();
   let hsLogin = JSON.parse(localStorage.getItem('hsLogin'));
@@ -175,6 +188,14 @@ function recordPath(){
   }
   pathCount = parseInt(pathCount) + 1;
   localStorage.setItem('pathCount', pathCount);
+}
+
+function getTotalPath(){
+  var pathCount = localStorage.getItem('pathCount');
+  if( pathCount == null ){
+    pathCount = 0;
+  }
+  return pathCount;
 }
 
 function isLoggedIn() {
