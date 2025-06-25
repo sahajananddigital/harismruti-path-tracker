@@ -1,6 +1,10 @@
 body {
     background: #f4f6f9;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: "Baloo Bhai 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  background-image: url('../images/bg.svg');
 }
 
 .tracker-card{
@@ -17,17 +21,23 @@ body {
     max-width: 600px;
     margin: 80px auto;
     border-radius: 20px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); */
     /* background:#caa9713d; */
-    
 }
 
 .tracker-card img {
-    width: 100%;
+    width: 80%;
 }
 
+.tracker-card .intro {
+    color: red;
+    margin-bottom: 5px;
+}
+
+/* .tracker-card {} */
+
 .btn-primary{
-    background-color: #2a394f !important;
+    background-color: rgb(53, 53, 167) !important;
 }
 .btn-lg {
     padding: 12px 20px;
@@ -70,6 +80,5 @@ body {
 
 .path-select .path{
     border-radius: 20px;
-    padding: 10px;
     margin: 10px;
 }

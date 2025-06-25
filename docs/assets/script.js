@@ -27,7 +27,6 @@ let pathData = JSON.parse(localStorage.getItem('harismrutiPath')) || [];
 
 loadPath( todayIndex );
 
-
 window.addEventListener('keydown', (e) => {
   if ([37, 39].includes(e.keyCode)) {
     e.preventDefault();
@@ -59,11 +58,11 @@ loginForm.addEventListener('submit', function (event) {
 startBtn.addEventListener('click', () => {
   if (audioPlayer.paused) {
     audioPlayer.play();
-    startBtn.textContent = "⏸️ બંધ કરો / Pause Path";
+    startBtn.textContent = "બંધ કરો / Pause Path";
     statusMsg.textContent = "Audio playing...";
   } else {
     audioPlayer.pause();
-    startBtn.textContent = "▶️ શરુ કરો / Resume Path";
+    startBtn.textContent = "શરુ કરો / Resume Path";
     statusMsg.textContent = "Audio paused.";
   }
 });
@@ -166,6 +165,16 @@ function sendDataToSheet() {
       "Content-Type": "text/plain;charset=utf-8",
     },
   })
+}
+
+function recordPath(){
+  var pathCount = localStorage.getItem('pathCount');
+  console.log(typeof(pathCount))
+  if( pathCount == null ){
+    pathCount = 0;
+  }
+  pathCount = parseInt(pathCount) + 1;
+  localStorage.setItem('pathCount', pathCount);
 }
 
 function isLoggedIn() {
