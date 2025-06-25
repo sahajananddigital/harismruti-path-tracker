@@ -12,6 +12,8 @@ const newPathBtn = document.getElementById('newPath');
 const statusMsg = document.getElementById('statusMsg');
 const loginForm = document.querySelector('.login-form');
 const lyricsDiv = document.getElementById('lyrics');
+const pathSelectContainer = document.querySelectorAll(".path-select .path");
+
 let lines = [];
 
 const today = new Date();
@@ -23,8 +25,8 @@ document.getElementById('currentDay').innerText = `${todayName} Path`;
 let isAudioPlaying = false;
 let pathData = JSON.parse(localStorage.getItem('harismrutiPath')) || [];
 
-audioPlayer.src = audioLinks[todayIndex];
-loadLyrics(todayIndex);
+loadPath( todayIndex );
+
 
 window.addEventListener('keydown', (e) => {
   if ([37, 39].includes(e.keyCode)) {
@@ -33,13 +35,18 @@ window.addEventListener('keydown', (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  console.log("DOM fully loaded and parsed");
   if (isLoggedIn()) {
     loginForm.style.cssText = "display: none !important";
   } else {
     document.querySelector('.tracker-card').style.display = "none";
     document.querySelector('.company').style.cssText = "display: none !important"
   }
+});
+
+pathSelectContainer.forEach( function(path){
+  path.addEventListener('click', function(e){
+    loadPath( parseInt( this.dataset.path ) );
+  });
 });
 
 loginForm.addEventListener('submit', function (event) {
@@ -52,11 +59,11 @@ loginForm.addEventListener('submit', function (event) {
 startBtn.addEventListener('click', () => {
   if (audioPlayer.paused) {
     audioPlayer.play();
-    startBtn.textContent = "⏸️ Pause Path";
+    startBtn.textContent = "⏸️ બંધ કરો / Pause Path";
     statusMsg.textContent = "Audio playing...";
   } else {
     audioPlayer.pause();
-    startBtn.textContent = "▶️ Resume Path";
+    startBtn.textContent = "▶️ શરુ કરો / Resume Path";
     statusMsg.textContent = "Audio paused.";
   }
 });
@@ -93,6 +100,15 @@ audioPlayer.addEventListener('timeupdate', () => {
   remainingTimeDisplay.textContent = `⌛ -${formatTime(remaining)}`;
 });
 
+function loadPath( audioIndex ){
+  audioPlayer.src = audioLinks[audioIndex];
+  console.log(audioLinks[audioIndex])
+  loadLyrics(audioIndex);
+  // checkAudioStatus();
+  startBtn.textContent = "▶️ શરુ કરો / Resume Path";
+  statusMsg.textContent = "Audio paused.";
+}
+
 // Load and parse .lrc file
 function loadLyrics(number){
 number += 1;
@@ -107,6 +123,7 @@ fetch(`lyrics/0${number}_lyrics.lrc`)
         text: match[3].trim()
       };
     }).filter(Boolean);
+    lyricsDiv.innerHTML = ''
 
     lines.forEach((ln, idx) => {
       const div = document.createElement('div');
