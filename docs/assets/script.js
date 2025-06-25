@@ -1,4 +1,4 @@
-const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"];
 const chintamaniDays = [ 
   "સોમવાર - સ્વરૂપ ચિન્તામણી, નાથ નીરખ્યા છે",
   "મંગળવાર - થાળ ચિન્તામણી, જમતા જોવાં છે",
