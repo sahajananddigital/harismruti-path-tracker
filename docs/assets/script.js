@@ -201,8 +201,48 @@ function getTotalPath(){
   return pathCount;
 }
 
+/**
+ * Check if User is Logged In
+ * @returns bool 
+ */
 function isLoggedIn() {
   const hsLogin = localStorage.getItem('hsLogin');
   console.log(hsLogin);
   return (hsLogin == null) ? false : true;
 }
+
+/**
+ * Handles the mobile lock screen lock prevent automatically
+ */
+
+    let wakeLock = null;
+
+    const requestWakeLock = async () => {
+      try {
+        wakeLock = await navigator.wakeLock.request('screen');
+        console.log('Screen Wake Lock is active!');
+      } catch (err) {
+        console.error(`${err.name}, ${err.message}`);
+      }
+    };
+
+
+    audioPlayer.addEventListener('play', () => {
+      requestWakeLock();
+    });
+
+        audioPlayer.addEventListener('pause', () => {
+      if (wakeLock !== null) {
+        wakeLock.release();
+        wakeLock = null;
+        console.log('Screen Wake Lock is released!');
+      }
+    });
+
+    audioPlayer.addEventListener('ended', () => {
+      if (wakeLock !== null) {
+        wakeLock.release();
+        wakeLock = null;
+        console.log('Screen Wake Lock is released!');
+      }
+    });
