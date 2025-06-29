@@ -1,16 +1,17 @@
-const dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"];
+const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const chintamaniDays = [ 
-  "સોમવાર - સ્વરૂપ ચિન્તામણી, નાથ નીરખ્યા છે",
-  "મંગળવાર - થાળ ચિન્તામણી, જમતા જોવાં છે",
-  "બુધવાર - લીલા ચિન્તામણી, ભુદર ભાળ્યા છે",
-  "ગુરુવાર - દર્શન ચિન્તામણી, દ્રગે દીઠા છે",
-  "શુક્રવાર - મહાત્મ્ય ચિન્તામણી, જીવન જાણું છે",
-  "શનિવાર - સુખ ચિન્તામણી, સુખકારી છે",
-  "રવિવાર - મૂર્તિ ચિન્તામણી, અયરજકારી છે"
+  "રવિવાર - સ્વરૂપ ચિન્તામણી, નાથ નીરખ્યા છે",
+  "સોમવાર - થાળ ચિન્તામણી, જમતા જોવાં છે",
+  "મંગળવાર - લીલા ચિન્તામણી, ભુદર ભાળ્યા છે",
+  "બુધવાર - દર્શન ચિન્તામણી, દ્રગે દીઠા છે",
+  "ગુરુવાર - મહાત્મ્ય ચિન્તામણી, જીવન જાણું છે",
+  "શુક્રવાર - સુખ ચિન્તામણી, સુખકારી છે",
+  "શનિવાર - મૂર્તિ ચિન્તામણી, અયરજકારી છે",
 ];
 const audioLinks = [
   'audio/chintamani-01.mp3', 'audio/chintamani-02.mp3', 'audio/chintamani-03.mp3',
-  'audio/chintamani-04.mp3', 'audio/chintamani-05.mp3', 'audio/chintamani-06.mp3', 'audio/chintamani-07.mp3'
+  'audio/chintamani-04.mp3', 'audio/chintamani-05.mp3', 'audio/chintamani-06.mp3', 
+  'audio/chintamani-07.mp3',
 ];
 
 const scriptURL = 'https://script.google.com/macros/s/AKfycbxo9eEsOHjYybbaGpPlMlF5ZA1v0kgN3rGbK6Y8XRphzlqzt5vkFDyx3couRYHA8qGQ/exec';
@@ -30,13 +31,12 @@ let lines = [];
 
 const today = new Date();
 const todayIndex = today.getDay();
-const todayName = chintamaniDays[todayIndex - 1];
-
+const todayName = chintamaniDays[todayIndex];
 
 let isAudioPlaying = false;
 let pathData = JSON.parse(localStorage.getItem('harismrutiPath')) || [];
 
-loadPath( todayIndex - 1 );
+loadPath( todayIndex );
 
 window.addEventListener('keydown', (e) => {
   if ([37, 39].includes(e.keyCode)) {
@@ -125,8 +125,7 @@ function loadPath( audioIndex ){
 
 // Load and parse .lrc file
 function loadLyrics(number){
-number += 1;
-fetch(`lyrics/0${number}_lyrics.lrc`)
+fetch(`lyrics/${number}_lyrics.lrc`)
   .then(res => res.text())
   .then(text => {
     lines = text.split('\n').map(l => {
