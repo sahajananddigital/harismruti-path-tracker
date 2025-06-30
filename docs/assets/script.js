@@ -116,11 +116,11 @@ function loadPath( audioIndex ){
   loadLyrics(audioIndex);
   currentDay.textContent = `${chintamaniDays[audioIndex]}`;
 
+  updateTotalPath();
 
   // checkAudioStatus();
   startBtn.textContent = "▶️ શરુ કરો / Resume Path";
   statusMsg.textContent = "Audio paused.";
-  totolPathDiv.textContent = `જય સ્વામિનારાયણ, આપના કુલ ${getTotalPath()} પાઠ થયા છે.`
 }
 
 // Load and parse .lrc file
@@ -192,6 +192,8 @@ function recordPath(){
   }
   pathCount = parseInt(pathCount) + 1;
   localStorage.setItem('pathCount', pathCount);
+
+  updateTotalPath();
 }
 
 function getTotalPath(){
@@ -200,6 +202,10 @@ function getTotalPath(){
     pathCount = 0;
   }
   return pathCount;
+}
+
+function updateTotalPath(){
+  totolPathDiv.textContent = `જય સ્વામિનારાયણ, આપના કુલ ${getTotalPath()} પાઠ થયા છે.`
 }
 
 /**
