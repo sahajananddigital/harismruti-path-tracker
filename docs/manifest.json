@@ -30,14 +30,14 @@
     ],
     "screenshots": [
         {
-            "src": "./images/screenshot/mobile.png",
+            "src": "./images/screenshots/mobile.png",
             "sizes": "412x914",
             "type": "image/png",
             "form_factor": "narrow",
             "label": "Mobile View"
         },
         {
-            "src": "./images/screenshot/desktop.png",
+            "src": "./images/screenshots/desktop.png",
             "sizes": "1440x870",
             "type": "image/png",
             "form_factor": "wide",
