@@ -2,7 +2,6 @@
     "name": "હરિસ્મૃતિ પાઠ / Harismruti Path",
     "start_url": "https://sahajananddigital.github.io/harismruti-path-tracker",
     "id": "/harismruti-path-tracker",
-    "scope": "https://sahajananddigital.github.io/harismruti-path-tracker/",
     "version": "1.0.1",
     "display": "standalone",
     "short_name": "હરિસ્મૃતિ પાઠ",
