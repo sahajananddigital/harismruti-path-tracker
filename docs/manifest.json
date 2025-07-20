@@ -32,7 +32,16 @@
         {
             "src": "./images/screenshot/mobile.png",
             "sizes": "412x914",
-            "type": "image/png"
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Mobile View"
+        },
+        {
+            "src": "./images/screenshot/desktop.png",
+            "sizes": "1440x870",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Desktop View"
         }
     ],
     "theme_color": "#ffffff",
