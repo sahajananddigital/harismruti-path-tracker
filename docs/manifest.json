@@ -1,19 +1,39 @@
 {
     "name": "હરિસ્મૃતિ પાઠ / Harismruti Path",
     "start_url": "https://sahajananddigital.github.io/harismruti-path-tracker",
+    "id": "/harismruti-path-tracker",
+    "scope": "https://sahajananddigital.github.io/harismruti-path-tracker/",
+    "version": "1.0.1",
     "display": "standalone",
     "short_name": "હરિસ્મૃતિ પાઠ",
+    "categories": [
+        "Education",
+        "Lifestyle",
+        "Sprituality"
+    ],
+    "developer": {
+        "name": "Sahajanand Digital",
+        "url": "https://sahajananddigital.github.io",
+        "email": "sahajananddigital108@gmail.com"
+    },
     "description": "Track your daily Harismruti Path progress with this simple web app.",
     "icons": [
         {
-            "src": "./images/gurukul_monogram.svg",
+            "src": "./images/gurukul_logo.png",
             "sizes": "192x192",
-            "type": "image/svg+xml"
+            "type": "image/png"
         },
         {
-            "src": "./images/gurukul_monogram.svg",
+            "src": "./images/gurukul_logo.png",
             "sizes": "512x512",
-            "type": "image/svg+xml"
+            "type": "image/png"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "./images/screenshot/mobile.png",
+            "sizes": "412x914",
+            "type": "image/png"
         }
     ],
     "theme_color": "#ffffff",
@@ -28,5 +48,5 @@
             "platform": "web",
             "url": "https://sahajananddigital.github.io/harismruti-path-tracker"
         }
-    ] 
+    ]
 }

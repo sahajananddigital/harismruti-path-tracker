@@ -55,7 +55,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 pathSelectContainer.forEach( function(path){
   path.addEventListener('click', function(e){
-    loadPath( parseInt( this.dataset.path ) );
+    if (isAudioPlaying) {
+      statusMsg.textContent = "Audio is currently playing. જય સ્વામિનારાયણ, પાઠ પૂરો થાય ત્યાં સુધી રાહ જુવો.....";
+      return;
+    } else {
+      loadPath( parseInt( this.dataset.path ) );
+    }
   });
 });
 
@@ -84,7 +89,7 @@ audioPlayer.addEventListener('play', () => {
 
 audioPlayer.addEventListener('ended', () => {
   isAudioPlaying = false;
-  statusMsg.textContent = "Audio completed! You can now click 'Complete Path'.";
+  statusMsg.textContent = "Audio completed! You can now click 'Any Path'.";
   sendDataToSheet();
 });
 
